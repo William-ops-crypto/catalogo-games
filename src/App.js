@@ -1,27 +1,13 @@
-import { state,useEffect, useState } from 'react';
+import { useState } from 'react';
 import {FiSearch} from 'react-icons/fi';
-import'./styles.css';
+import'./App.css';
 
 
 import api from './services/api';
-import { render } from '@testing-library/react';
 
 
-function refreshPage() {
-  window.location.reload(false);
 
-}
 
-function mostra_oculta(){
-
-  var x = document.getElementById("myDIV");
-  if (x.style.display === "none") {
-      x.style.display = "block";
-  } else {
-      x.style.display = "none";
-  }
-
-}
 
 
 
