@@ -27,7 +27,7 @@ function App() {
 
 
   const[input,setInput] = useState('');
-  const[id,setId] = useState(['']);
+  const[id,setId] = useState([]);
  
 
 
@@ -40,8 +40,10 @@ function App() {
    
 
     if(input === "" ){
-      alert("Preencha o campo com Id")
+      alert("Preencha o campo")
       return;}
+
+  
 
 
     
@@ -60,8 +62,8 @@ function App() {
 
      //this.setState(response.data);
      
-    
-      
+     
+
 
      
 
@@ -72,7 +74,8 @@ function App() {
       setInput("")
       
       
-
+     
+      
 
 
     }
@@ -89,8 +92,7 @@ function App() {
         
     //}
     
-    
-    
+ 
 
   }
 
@@ -103,10 +105,10 @@ function App() {
 
   function render(){
 
-  
+    
 
     const ListaJogos = id.map(jogo => 
-      <div>
+      
       <li key={jogo.id}>
        
          
@@ -138,15 +140,18 @@ function App() {
   
   
      </li>
-    </div>
+        
   
   );
 
-  return(
-    <ul>
-      {ListaJogos}
-    </ul>
-  )
+  return <ul>{ListaJogos}</ul>
+
+
+
+
+
+      
+  
   
   
   }
@@ -160,6 +165,7 @@ function App() {
       
       
     }
+    
     
     
   }
@@ -179,6 +185,9 @@ function App() {
 
 
     return (
+
+    <header>
+
 
     <div className= "body">
     
@@ -210,7 +219,12 @@ function App() {
       
       
       <main className="main" >
+
         
+      <h1>
+       
+        
+      </h1>  
       {render() }
       
       
@@ -239,6 +253,8 @@ function App() {
 
 
     </div>
+
+    </header>
   );
 
 }

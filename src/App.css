@@ -1,14 +1,15 @@
 
 
 .body{
-    height: auto;
+    
+    height: 3400px;
     
     background: linear-gradient(#121212, #4b70d5);
 
 }
 .container{
     
-    height: auto;
+   
     
     
     
@@ -85,7 +86,7 @@
         align-items: center;
         flex-direction: column;
         background-color: #e2e6ef;
-        width: 500px;
+        width: 200px;
         border-radius: 8px;
     }
     .main h2{
@@ -100,7 +101,7 @@
         align-items: center;
     }
 
-    @media(max-width: 620px){
+    @media(max-width: 2480px){
         .title{
             font-size: 35px;
             
@@ -124,6 +125,18 @@
         width: 50%;
         min-height: 150px;
     }
+    .main h1{
+            font-size: 55px;
+            color: #0c0c0c;
+            animation: flipTitle 4s;
+            justify-content: center;
+            align-items: center;
+            display: inline-flexbox;
+            justify-content: center;
+            
+        }
+
+    
 
 
 
