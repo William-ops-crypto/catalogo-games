@@ -107,9 +107,12 @@ function App() {
 
     
 
-    const ListaJogos = id.map(jogo => 
+    const ListaJogos = id.map   (jogo => 
       
-      <li key={jogo.id}>
+      
+      <main className="main" key={jogo.id}>
+        <ul >
+      
        
          
        <h2>Nome : {jogo.title }</h2>
@@ -125,7 +128,7 @@ function App() {
        </h5>
   
        <h5>
-         Ano de Lançamento : {jogo.year} 
+         Ano de Lançamento : {jogo.gameYear} 
   
        </h5>
   
@@ -139,26 +142,22 @@ function App() {
   
   
   
-     </li>
+     </ul>
+     </main>
         
   
   );
-
-  return <ul>{ListaJogos}</ul>
-
-
-
-
-
       
-  
-  
-  
-  }
+  return ListaJogos;
+
+
+
+
+}
     
 
 
-  function butto(){
+  function button(){
     
     if(handleSeach() === true){
        render();
@@ -186,10 +185,16 @@ function App() {
 
     return (
 
-    <header>
-
-
+   
     <div className= "body">
+       <div className="head">
+        
+
+
+
+       </div>
+
+
     
     <div className="container">
       <h1 className= "title">Lista de Jogos</h1>
@@ -205,7 +210,7 @@ function App() {
         >
           </input>
           <button className="buttonSearch"
-          onClick={()=>butto()}
+          onClick={()=>button()}
          
           >
             <FiSearch size={25} color= "#Black"/>
@@ -218,17 +223,16 @@ function App() {
       
       
       
-      <main className="main" >
+      <div className='card'>
 
-        
-      <h1>
-       
-        
-      </h1>  
-      {render() }
+      
+      {render()}
+
       
       
-      </main>
+      
+      
+      </div>
 
         
     
@@ -254,7 +258,7 @@ function App() {
 
     </div>
 
-    </header>
+    
   );
 
 }

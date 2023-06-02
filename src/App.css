@@ -87,7 +87,7 @@
         flex-direction: column;
         background-color: #e2e6ef;
         width: 200px;
-        border-radius: 8px;
+        border-radius: 15px;
     }
     .main h2{
         margin: 10px 0;
@@ -121,11 +121,11 @@
         font-size: 15px;
     }
     .main{
-        height: 50%;
-        width: 50%;
+        height: 70%;
+        width: 70%;
         min-height: 150px;
     }
-    .main h1{
+    .li h1{
             font-size: 55px;
             color: #0c0c0c;
             animation: flipTitle 4s;
@@ -135,6 +135,18 @@
             justify-content: center;
             
         }
+
+
+        .card {
+        
+            display: inline-flexbox;
+            justify-content: center;
+            align-items: center;
+            margin-left: 250px;
+           
+            
+        }   
+         
 
     
 
