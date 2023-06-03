@@ -101,10 +101,13 @@
         align-items: center;
     }
 
-    @media(max-width: 2480px){
+    @media(max-width: 400px){
         .title{
             font-size: 35px;
             
+        }
+        .card{
+            margin-left: 0px;
         }
      
      
@@ -121,9 +124,9 @@
         font-size: 15px;
     }
     .main{
-        height: 70%;
-        width: 70%;
-        min-height: 150px;
+        height: 50%;
+        width: 90%;
+        min-height: 350px;
     }
     .li h1{
             font-size: 55px;
@@ -131,7 +134,7 @@
             animation: flipTitle 4s;
             justify-content: center;
             align-items: center;
-            display: inline-flexbox;
+            
             justify-content: center;
             
         }
@@ -139,11 +142,12 @@
 
         .card {
         
-            display: inline-flexbox;
+            display:inline-block;
             justify-content: center;
             align-items: center;
-            margin-left: 250px;
-           
+            margin-left: 50px;
+            justify-content: center;
+            
             
         }   
          
