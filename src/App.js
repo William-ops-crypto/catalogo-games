@@ -112,7 +112,9 @@ function App() {
       
       <main className="main" key={jogo.id}>
         <ul >
-      
+       <div>
+        key
+       </div>
        
          
        <h2>Nome : {jogo.title }</h2>
