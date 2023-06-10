@@ -4,7 +4,7 @@ import'./App.css';
 
 
 import api from './services/api';
-
+import apiget from './services/apiget';
 
 
 
@@ -97,13 +97,138 @@ function App() {
   }
 
 
+
+  async function handleGet(){
+   
+   
+
+   
+
+  
+
+
+    
+
+    try{
+      const response = await apiget.get(`1/games`);
+      //const response = await api.get(`${input}`);
+  
+      
+      setId(response.data)
+     
+      setInput("");
+      
+      
+      console.log(response.data);
+
+     //this.setState(response.data);
+     
+     
+
+
+     
+
+    }catch{
+
+
+     alert ("Ops nada encontrado")
+      setInput("")
+      
+      
+     
+      
+
+
+    }
+  //  if(id.title === id[0].title  ){
+        
+    //  return;
+      
+       
+   // }else{
+     
+    //  refreshPage()
+     // setInput("")
+      
+        
+    //}
+    
+ 
+
+  }
+
+  async function handleGet2(){
+   
+   
+
+   
+
+  
+
+
+    
+
+    try{
+      const response = await apiget.get(`2/games`);
+      //const response = await api.get(`${input}`);
+  
+      
+      setId(response.data)
+     
+      
+      
+      
+      console.log(response.data);
+
+     //this.setState(response.data);
+     
+     
+
+
+     
+
+    }catch{
+
+
+     alert ("Ops nada encontrado")
+      setInput("")
+      
+      
+     
+      
+
+
+    }
+  //  if(id.title === id[0].title  ){
+        
+    //  return;
+      
+       
+   // }else{
+     
+    //  refreshPage()
+     // setInput("")
+      
+        
+    //}
+    
+ 
+
+  }
+
+
+
+  function recarregarAPagina(){
+    window.location.reload();
+} 
+
   
     
 
     
     
 
-  function render(){
+  function render() {
 
     
 
@@ -170,6 +295,32 @@ function App() {
     
     
   }
+
+  function buttonhome(){
+
+    
+    
+    if(handleGet() === true){
+      
+       render();
+      
+      
+    }
+    
+    
+    
+  }
+  function buttonhome2(){
+    
+    if(handleGet2() === true){
+       render();
+      
+      
+    }
+    
+    
+    
+  }
   
   
   
@@ -190,6 +341,23 @@ function App() {
    
     <div className= "body">
        <div className="head">
+
+
+        <button onClick={() => recarregarAPagina()}>
+        Home
+        </button>
+        <button onClick={() => buttonhome()}>
+        Aventura e RPG
+        </button>
+        <button onClick={() => buttonhome2()}>
+        Jogos de plataforma
+        </button>
+      
+
+
+
+        
+        
         
 
 
@@ -211,8 +379,8 @@ function App() {
         
         >
           </input>
-          <button className="buttonSearch"
-          onClick={()=>button()}
+          <button className="buttonSearch" 
+          onClick={()=>button()} type="submit"
          
           >
             <FiSearch size={25} color= "#Black"/>
@@ -225,7 +393,7 @@ function App() {
       
       
       
-      <div className='card'>
+      <div className='card' onChange={(e) => setId(e.target.value)}  >
 
       
       {render()}
@@ -242,7 +410,7 @@ function App() {
     
     
     
-    
+      
     
     
     
@@ -255,13 +423,23 @@ function App() {
     </div>
 
 
+      <div className='footer'>
+
+        By: Will !! WhatsApp : 21 995915256
+
+      </div>
 
 
-
+      
     </div>
-
+    
+      
     
   );
+
+
+
+  
 
 }
 

@@ -1,18 +1,27 @@
 
+.head{
+    margin: 0px 10px;
+    font-size: 30px;
+    color: rgb(240, 248, 240);
+   
+    
+    
+}
 
 .body{
-    
-    height: 3400px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
     
     background: linear-gradient(#121212, #4b70d5);
-
 }
+
 .container{
     
    
     
-    
-    
+    min-height: 750px;
+    max-height: 2800px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,6 +90,9 @@
 
     .main {
         
+    
+        
+        
         display: inline-flexbox;
         justify-content: center;
         align-items: center;
@@ -148,12 +160,12 @@
 
 
         .card {
-            margin-top: 10px;
-            display:inline-block;
-            justify-content: center;
-            align-items: center;
-            margin-left: 50px;
-            justify-content: center;
+            margin: 10px 10px ;
+
+
+            
+           
+           
             
             
         }   
@@ -163,6 +175,23 @@
             margin: 10px 0px ;
             font-size: 1px;
             color:  #e2e6ef;
+        }
+
+        .footer{
+            
+            display: flex;
+            height: 3.5rem; 
+            width: 100%; 
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: 'Courier New', Courier, monospace;
+            
+            font-size: 22px;
+            color:  #161718;
+            background: linear-gradient(#121212, #f0f0f3);
+
+
         }
 
         
