@@ -344,7 +344,7 @@ function App() {
 
 
         <button onClick={() => recarregarAPagina()}>
-        Home
+        Início
         </button>
         <button onClick={() => buttonhome()}>
         Aventura e RPG
@@ -425,7 +425,9 @@ function App() {
 
       <div className='footer'>
 
+        <h5>
         By: Will !! WhatsApp : 21 995915256
+          </h5>
 
       </div>
 

@@ -126,6 +126,16 @@
             margin-left: auto;
           
         }
+
+        .footer h5{
+            
+          
+            
+            font-size: 15px;
+         
+
+
+        }
      
         
      
@@ -180,7 +190,7 @@
         .footer{
             
             display: flex;
-            height: 3.5rem; 
+            height: 2.5rem; 
             width: 100%; 
             justify-content: center;
             align-items: center;
