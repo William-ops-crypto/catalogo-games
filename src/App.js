@@ -251,7 +251,7 @@ function App() {
   
        
        <h5>
-         Plataforma : {jogo.platforms} 
+          {jogo.platforms} 
        </h5>
   
        <h5>
@@ -274,6 +274,10 @@ function App() {
         
   
   );
+
+
+
+  
       
   return ListaJogos;
 
