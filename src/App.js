@@ -28,7 +28,7 @@ function App() {
 
   const[input,setInput] = useState('');
   const[id,setId] = useState([]);
-  const[item,setItem] = useState('');
+  
  
 
 
@@ -58,7 +58,7 @@ function App() {
   
       
       setId(response.data);
-      setItem(response.data.Array)
+      
      
       setInput("");
       
