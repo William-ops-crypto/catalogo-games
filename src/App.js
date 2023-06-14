@@ -20,7 +20,7 @@ function App() {
   
   
 
- // const { jogos } =this.state;
+ 
 
   
   
@@ -28,6 +28,7 @@ function App() {
 
   const[input,setInput] = useState('');
   const[id,setId] = useState([]);
+  const[item,setItem] = useState('');
  
 
 
@@ -42,6 +43,9 @@ function App() {
     if(input === "" ){
       alert("Preencha o campo")
       return;}
+      
+      
+      
 
   
 
@@ -53,14 +57,16 @@ function App() {
       //const response = await api.get(`${input}`);
   
       
-      setId(response.data)
+      setId(response.data);
+      setItem(response.data.Array)
      
       setInput("");
       
       
+      console.log(response);
       console.log(response.data);
 
-     //this.setState(response.data);
+     
      
      
 
@@ -91,7 +97,8 @@ function App() {
       
         
     //}
-    
+
+  
  
 
   }
@@ -121,7 +128,7 @@ function App() {
       
       console.log(response.data);
 
-     //this.setState(response.data);
+    
      
      
 
@@ -140,18 +147,7 @@ function App() {
 
 
     }
-  //  if(id.title === id[0].title  ){
-        
-    //  return;
-      
-       
-   // }else{
-     
-    //  refreshPage()
-     // setInput("")
-      
-        
-    //}
+
     
  
 
@@ -179,6 +175,7 @@ function App() {
       
       
       console.log(response.data);
+      console.log(response.data);
 
      //this.setState(response.data);
      
@@ -194,25 +191,13 @@ function App() {
       setInput("")
       
       
+      
      
       
 
 
     }
-  //  if(id.title === id[0].title  ){
-        
-    //  return;
-      
-       
-   // }else{
-     
-    //  refreshPage()
-     // setInput("")
-      
-        
-    //}
-    
- 
+
 
   }
 
@@ -232,7 +217,13 @@ function App() {
 
     
 
+    
+    
+    
+    
+
     const ListaJogos = id.map   (jogo => 
+      
       
       
       <main className="main" key={jogo.id}>
@@ -266,21 +257,22 @@ function App() {
        </span>
   
   
-  
+      
   
   
      </ul>
      </main>
-        
-  
+     
+      
   );
 
 
 
-  
+ 
       
   return ListaJogos;
-
+  
+    
 
 
 
@@ -290,11 +282,14 @@ function App() {
 
   function button(){
     
+    
+    
     if(handleSeach() === true){
        render();
       
       
     }
+    
     
     
     
@@ -397,7 +392,7 @@ function App() {
       
       
       
-      <div className='card' onChange={(e) => setId(e.target.value)}  >
+      <div className='card'    >
 
       
       {render()}

@@ -41,7 +41,7 @@
    
     
     min-height: 725px;
-    max-height: 2800px;
+    max-height: 3400px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,16 +109,20 @@
     }
 
     .main {
+
+        
+        margin-left: 10%;
         
     
         
+        width: 80%;
+        min-height: 320px;
         
-        display: inline-flexbox;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+        
+        
+        
         background-color: #e2e6ef;
-        width: 200px;
+        
         border-radius: 15px;
     }
     .main h2{
@@ -137,16 +141,19 @@
     @media(max-width: 600px){
         .title{
             font-size: 35px;
+            margin-top: 0px;
             
         }
         .main{
+            align-items: center;
             
-           margin: 20px 20px;
+           margin: 40px 40px;
            
           
         }
 
         .footer h5{
+            
             
           
             
@@ -171,6 +178,9 @@
         
         }
         
+
+        
+        
         
      
 
@@ -185,13 +195,7 @@
     .main h5{
         font-size: 15px;
     }
-    .main{
-        
-        height: 50%;
-        width: 90%;
-        min-height: 350px;
-        
-    }
+
     .li h1{
             font-size: 55px;
             color: #0c0c0c;
@@ -205,7 +209,8 @@
 
 
         .card {
-            margin: 10px 10px ;
+            
+            margin: 10px 10px  ;
            
             
             
@@ -219,8 +224,8 @@
         }   
 
         .main div{
-        
-            margin: 10px 10px ;
+            
+            margin: 10px 10px  ;
             font-size: 1px;
             color:  #e2e6ef;
             
@@ -245,6 +250,10 @@
             background: linear-gradient(#121212, #f0f0f3);
 
 
+        }
+        .main ul{
+            
+            align-items: center;
         }
 
         
