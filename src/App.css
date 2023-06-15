@@ -152,6 +152,7 @@
             
         }
         .main{
+            display: flex;
             align-items: center;
            
             
@@ -188,7 +189,7 @@
         
         }
         .card {
-
+            display: ;
             
            
             
@@ -241,7 +242,7 @@
 
             
            
-            width: 50%;
+            
             
             margin: 10px 10px  ;
            
