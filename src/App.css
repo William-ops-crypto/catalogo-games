@@ -11,8 +11,8 @@
     
 }
 .head button{
-    
-    margin: 10px;
+    margin-top: 20px;
+    margin: 30px 10px;
     align-items: center;
     padding: 15px 25px;
     font-size: 20px;
@@ -153,6 +153,9 @@
         }
         .main{
             align-items: center;
+           
+            
+
             
            
            
@@ -189,8 +192,9 @@
             
            
             
-            
+            width: 80%;
             align-items: center ;
+            margin: 10px 10px;
            
             
             
@@ -236,8 +240,8 @@
         .card {
 
             
+           
             width: 50%;
-            
             
             margin: 10px 10px  ;
            
