@@ -13,10 +13,6 @@ function App() {
   const[input,setInput] = useState('');
   const[id,setId] = useState([]);
   
- 
-
-
-
   async function getGameDetails(id){
 
 
@@ -39,14 +35,7 @@ function App() {
       setInput("")
       
       }
-    
-    
-    
-   
-   
-
-
-  }
+    }
 
   
 
@@ -54,9 +43,7 @@ function App() {
   
   async function handleSeach(){
    
-   
-
-    if(input === "" ){
+      if(input === "" ){
       alert("Preencha o campo")
       return;}
       
@@ -198,7 +185,7 @@ function App() {
   
       
         <button   onClick={() => getGameDetails(jogo.id)}>
-        {jogo.id}
+        Mais detalhes 
         </button>  
   
      </ul>
