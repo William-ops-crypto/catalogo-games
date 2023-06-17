@@ -4,33 +4,49 @@ import'./App.css';
 
 
 import api from './services/api';
-import apiget from './services/apiget';
-
-
-
-
-
-
 
 
 
 function App() {
   
-  
-  
-  
-
- 
-
-  
-  
-
 
   const[input,setInput] = useState('');
   const[id,setId] = useState([]);
   
  
 
+
+
+  async function getGameDetails(id){
+
+
+    console.log(id)
+    try{
+      const response = await api.get(`games/${id}`);
+      //const response = await api.get(`${input}`);
+  
+      
+     
+     
+      setInput("");
+      
+      
+      console.log(response.data);
+    }catch{
+
+
+     alert ("Ops nada encontrado")
+      setInput("")
+      
+      }
+    
+    
+    
+   
+   
+
+
+  }
 
   
 
@@ -45,16 +61,9 @@ function App() {
       return;}
       
       
-      
-
-  
-
-
-    
-
-    try{
-      const response = await api.get(`title?title=${input}`);
-      //const response = await api.get(`${input}`);
+      try{
+      const response = await api.get(`buscar/title?title=${input}`);
+     
   
       
       setId(response.data);
@@ -85,39 +94,19 @@ function App() {
 
 
     }
-  //  if(id.title === id[0].title  ){
-        
-    //  return;
-      
-       
-   // }else{
-     
-    //  refreshPage()
-     // setInput("")
-      
-        
-    //}
 
-  
  
 
   }
 
 
 
-  async function handleGet(){
-   
-   
-
-   
-
-  
-
+  async function handleGet(rota){
 
     
-
+    
     try{
-      const response = await apiget.get(`1/games`);
+      const response = await api.get(`lists/${rota}/games`);
       //const response = await api.get(`${input}`);
   
       
@@ -127,14 +116,6 @@ function App() {
       
       
       console.log(response.data);
-
-    
-     
-     
-
-
-     
-
     }catch{
 
 
@@ -153,87 +134,45 @@ function App() {
 
   }
 
-  async function handleGet2(){
-   
-   
-
-   
-
   
 
 
-    
-
-    try{
-      const response = await apiget.get(`2/games`);
-      //const response = await api.get(`${input}`);
-  
-      
-      setId(response.data)
-     
-      
-      
-      
-      console.log(response.data);
-      console.log(response.data);
-
-     //this.setState(response.data);
-     
-     
-
-
-     
-
-    }catch{
-
-
-     alert ("Ops nada encontrado")
-      setInput("")
-      
-      
-      
-     
-      
-
-
-    }
-
-
-  }
-
-
-
-  function recarregarAPagina(){
+  function reloadPage(){
     window.location.reload();
 } 
 
   
     
 
+
+
+
+
+    
+
+ function render() {
+
+    
+
     
     
 
-  function render() {
-
-    
-
-    
-    
     
     
 
-    const ListaJogos = id.map   (jogo => 
+    const ListaJogos =  id.map   (jogo => 
       
       
       
       <main className="main" key={jogo.id}>
+        
         <ul >
-       <div>
-        key
+       <div >
+        
        </div>
        
          
-       <h2>Nome : {jogo.title }</h2>
+       <h2>Nome :{jogo.id} {jogo.title }</h2>
   
        
        
@@ -258,7 +197,9 @@ function App() {
   
   
       
-  
+        <button   onClick={() => getGameDetails(jogo.id)}>
+        {jogo.id}
+        </button>  
   
      </ul>
      </main>
@@ -280,75 +221,21 @@ function App() {
     
 
 
-  function button(){
-    
-    
-    
-    if(handleSeach() === true){
-       render();
-      
-      
-    }
-    
-    
-    
-    
-  }
-
-  function buttonhome(){
-
-    
-    
-    if(handleGet() === true){
-      
-       render();
-      
-      
-    }
-    
-    
-    
-  }
-  function buttonhome2(){
-    
-    if(handleGet2() === true){
-       render();
-      
-      
-    }
-    
-    
-    
-  }
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
 
     return (
 
    
     <div className= "body">
        <div className="head">
+        
 
-
-        <button onClick={() => recarregarAPagina()}>
+        <button onClick={() => reloadPage()}>
         Início
         </button>
-        <button onClick={() => buttonhome()}>
+        <button onClick={() => handleGet(1)}>
         Aventura e RPG
         </button>
-        <button onClick={() => buttonhome2()}>
+        <button onClick={() => handleGet(2)}>
         Jogos de plataforma
         </button>
       
@@ -379,7 +266,7 @@ function App() {
         >
           </input>
           <button className="buttonSearch" 
-          onClick={()=>button()} type="submit"
+          onClick={()=>handleSeach()} type="submit"
          
           >
             <FiSearch size={25} color= "#Black"/>
