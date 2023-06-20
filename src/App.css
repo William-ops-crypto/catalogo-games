@@ -117,16 +117,18 @@ button:hover{
 
     .main {
         
-       display: flexbox; ; 
+       display: flex; ; 
        align-items: center;
+       justify-content: center;
         
     
         
         width: 100%;
-        min-height: 320px;
+        min-height: 300px;
+        max-width: 800px;
         
         
-        margin: 0px 0px;
+        margin: 10px 0px;
         
         background-color: #e2e6ef;
         
@@ -155,6 +157,9 @@ button:hover{
             
         }
         .main{
+            display: flex;
+            width: 100%;
+            margin: 10px 0px;
             
             align-items: center;
            
@@ -192,14 +197,17 @@ button:hover{
             
         
         }
-  
-        
+        .card {
 
-    
-        
-        
-     
-
+            padding: 10px 10px;
+            border: lightyellow;
+           
+            width: 80%;
+            
+            margin: 0px 10px  ;
+           
+            
+        }
     }
 
 
@@ -229,13 +237,8 @@ button:hover{
             
            
             
-            
-            margin: 10px 10px  ;
-           
-            
-            
-
-
+            padding: 10px 10px;
+         
             
            
            

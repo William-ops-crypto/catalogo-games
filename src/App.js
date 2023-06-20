@@ -69,7 +69,7 @@ function App() {
     const ListaJogos =  id.map   (jogo => 
     <main className="main" key={jogo.id}>
       <ul >
-        <div ></div>
+        
         <h2>Nome : {jogo.title }</h2>
         <img src={jogo.imgUrl} alt="imagem" width={80}   />
         <h5> {jogo.platforms} </h5>
