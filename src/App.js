@@ -7,9 +7,8 @@ import api from './services/api';
 
 
 
-function App() {
-  
 
+function App() {
   const[input,setInput] = useState('');
   const[id,setId] = useState([]);
   
@@ -20,26 +19,14 @@ function App() {
     try{
       const response = await api.get(`games/${id}`);
       //const response = await api.get(`${input}`);
-  
-      
-     
-     
-      setInput("");
-      
-      
-      console.log(response.data);
+       setInput("");
+       console.log(response.data);
     }catch{
-
-
-     alert ("Ops nada encontrado")
+      alert ("Ops nada encontrado")
       setInput("")
       
       }
     }
-
-  
-
-  
   
   async function handleSeach(){
    
@@ -47,175 +34,63 @@ function App() {
       alert("Preencha o campo")
       return;}
       
-      
-      try{
+    try{
       const response = await api.get(`buscar/title?title=${input}`);
-     
-  
-      
       setId(response.data);
-      
-     
       setInput("");
-      
-      
       console.log(response);
       console.log(response.data);
-
-     
-     
-     
-
-
-     
-
+      
     }catch{
-
-
-     alert ("Ops nada encontrado")
+        alert ("Ops nada encontrado")
       setInput("")
-      
-      
-     
-      
-
-
+      }
     }
-
- 
-
-  }
-
-
 
   async function handleGet(rota){
 
-    
-    
     try{
       const response = await api.get(`lists/${rota}/games`);
       //const response = await api.get(`${input}`);
-  
-      
       setId(response.data)
-     
       setInput("");
-      
-      
       console.log(response.data);
     }catch{
-
-
-     alert ("Ops nada encontrado")
+      alert ("Ops nada encontrado")
       setInput("")
-      
-      
-     
-      
-
-
+      }
     }
-
-    
- 
-
-  }
-
-  
-
 
   function reloadPage(){
     window.location.reload();
-} 
-
-  
-    
-
-
-
-
-
-    
-
- function render() {
-
-    
-
-    
-    
-
-    
-    
+    } 
+  function render() {
 
     const ListaJogos =  id.map   (jogo => 
+    <main className="main" key={jogo.id}>
+      <ul >
+        <div ></div>
+        <h2>Nome : {jogo.title }</h2>
+        <img src={jogo.imgUrl} alt="imagem" width={80}   />
+        <h5> {jogo.platforms} </h5>
+        <h5> Ano de Lançamento : {jogo.gameYear} </h5>
+        <span> Descrição : { jogo.shortDescription} </span>
       
-      
-      
-      <main className="main" key={jogo.id}>
-        
-        <ul >
-       <div >
-        
-       </div>
-       
-         
-       <h2>Nome :{jogo.id} {jogo.title }</h2>
-  
-       
-       
-       <img src={jogo.imgUrl} alt="imagem" width={80}   />
-  
-  
-       
-       <h5>
-          {jogo.platforms} 
-       </h5>
-  
-       <h5>
-         Ano de Lançamento : {jogo.gameYear} 
-  
-       </h5>
-  
-       
-  
-       <span>
-         Descrição : { jogo.shortDescription} 
-       </span>
-  
-  
-      
-        <button   onClick={() => getGameDetails(jogo.id)}>
-        Mais detalhes 
-        </button>  
-  
-     </ul>
-     </main>
-     
-      
-  );
-
-
-
- 
-      
-  return ListaJogos;
-  
+          <button   onClick={() => getGameDetails(jogo.id)}>
+          Mais detalhes 
+          </button>  
+      </ul>
+    </main>
+     );
+      return ListaJogos;
+    }
     
+  return (
 
-
-
-}
-    
-
-
-
-    return (
-
+      
    
     <div className= "body">
-       <div className="head">
-        
-
+      <div className="head">
         <button onClick={() => reloadPage()}>
         Início
         </button>
@@ -225,17 +100,7 @@ function App() {
         <button onClick={() => handleGet(2)}>
         Jogos de plataforma
         </button>
-      
-
-
-
-        
-        
-        
-
-
-
-       </div>
+      </div>
 
 
     
@@ -308,6 +173,8 @@ function App() {
       
     </div>
     
+     
+        
       
     
   );
