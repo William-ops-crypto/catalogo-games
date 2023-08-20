@@ -57,22 +57,7 @@ button:hover{
 }
 
 
-.title{
-    font-size: 55px;
-    color: #e2e6ef;
-    animation: flipTitle 4s;
-    
-}
 
-  @keyframes flipTitle {
-    from{
-        transform: rotateX(90deg);
-
-    }
-    to{
-        transform: rotateX(0deg);
-    }
-}
 
 .containerInput{
 
@@ -142,26 +127,34 @@ button:hover{
 
     .main span {
         
-        margin: 0px 0px;
+        display: flex;
+        align-items: center;
+        justify-items: center;
         margin-bottom: 1px;
+        margin-top: 10px;
         font-weight: bold;
         font-size: 15px;
-        align-items: center;
+       
         
     }
 
     @media(max-width: 600px){
-        .title{
-            font-size: 35px;
-            margin-top: 0px;
-            
-        }
+     
         .main{
             display: flex;
-            width: 100%;
-            margin: 10px 0px;
+            
+            
+            justify-content: center;
+            padding: 0px 0px;
+            
             
             align-items: center;
+            
+            border: lightyellow;
+           
+            width: 80%;
+            
+            margin-top:10px  ;
            
             
 
@@ -208,43 +201,31 @@ button:hover{
            
             
         }
+
+        .main span{
+
+         display: flex;
+        align-items: center;
+          justify-items: center;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+
     }
 
 
 
     .main h2{
         
-        font-size: 15px;
+        font-size: 20px;
     }
     .main h5{
         font-size: 15px;
     }
 
-    .li h1{
-            font-size: 55px;
-            color: #0c0c0c;
-            animation: flipTitle 4s;
-            justify-content: center;
-            align-items: center;
-            
-            justify-content: center;
-            
-        }
 
 
-        .card {
 
-            
-           
-            
-            padding: 10px 10px;
-         
-            
-           
-           
-            
-            
-        }   
 
         .main div{
             padding: 10px 10px;
@@ -274,10 +255,7 @@ button:hover{
 
 
         }
-        .main span{
-            
-            margin-right: 10px;
-        }
+        
 
         .main button{
             display: flex;

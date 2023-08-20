@@ -1,188 +1,135 @@
+
 import { useState } from 'react';
-import {FiSearch} from 'react-icons/fi';
-import'./App.css';
-
-
+import { FiSearch } from 'react-icons/fi';
+import ButtonMenu from './components/Menu/Button';
+import './App.css';
 import api from './services/api';
-
-
-
+import {
+  ContainerMenu, Logo, Text, Title,
+} from './styles';
 
 function App() {
-  const[input,setInput] = useState('');
-  const[id,setId] = useState([]);
-  
-  async function getGameDetails(id){
+  const [input, setInput] = useState('');
+  const [id, setId] = useState([]);
 
-
-    console.log(id)
-    try{
+  async function getGameDetails(id) {
+    try {
       const response = await api.get(`games/${id}`);
-      //const response = await api.get(`${input}`);
-       setInput("");
-       console.log(response.data);
-    }catch{
-      alert ("Ops nada encontrado")
-      setInput("")
-      
-      }
+      // const response = await api.get(`${input}`);
+
+      setId([response.data]);
+      setInput('');
+
+      console.log(response);
+      console.log(id);
+    } catch {
+      alert('Ops nada encontrado');
+      setInput('');
     }
-  
-  async function handleSeach(){
-   
-      if(input === "" ){
-      alert("Preencha o campo")
-      return;}
-      
-    try{
+  }
+
+  async function handleSeach() {
+    if (input === '') {
+      alert('Preencha o campo');
+      return;
+    }
+
+    try {
       const response = await api.get(`buscar/title?title=${input}`);
       setId(response.data);
-      setInput("");
+      setInput('');
       console.log(response);
       console.log(response.data);
-      
-    }catch{
-        alert ("Ops nada encontrado")
-      setInput("")
-      }
+    } catch {
+      alert('Ops nada encontrado');
+      setInput('');
     }
+  }
 
-  async function handleGet(rota){
-
-    try{
+  async function handleGet(rota) {
+    try {
       const response = await api.get(`lists/${rota}/games`);
-      //const response = await api.get(`${input}`);
-      setId(response.data)
-      setInput("");
+      // const response = await api.get(`${input}`);
+      setId(response.data);
+      setInput('');
       console.log(response.data);
-    }catch{
-      alert ("Ops nada encontrado")
-      setInput("")
-      }
+    } catch {
+      alert('Ops nada encontrado');
+      setInput('');
     }
+  }
 
-  function reloadPage(){
+  function reloadPage() {
     window.location.reload();
-    } 
-  function render() {
+  }
+  function renderCard() {
+    const ListaJogos = id.map((jogo) => (
+      <main className="main" key={jogo.id} onClick={() => getGameDetails(jogo.id)}>
+        <ul>
 
-    const ListaJogos =  id.map   (jogo => 
-    <main className="main" key={jogo.id}>
-      <ul >
-        
-        <h2>Nome : {jogo.title }</h2>
-        <img src={jogo.imgUrl} alt="imagem" width={80}   />
-        <h5> {jogo.platforms} </h5>
-        <h5> Ano de Lançamento : {jogo.gameYear} </h5>
-        <span> Descrição : { jogo.shortDescription} </span>
-      
-          <button   onClick={() => getGameDetails(jogo.id)}>
-          Mais detalhes 
-          </button>  
-      </ul>
-    </main>
-     );
-      return ListaJogos;
-    }
-    
+          <h2> {jogo.title}</h2>
+          <Logo src={jogo.imgUrl} />
+          <Text> {jogo.platforms} </Text>
+          <Text> Ano de Lançamento : {jogo.gameYear} </Text>
+          <Text>{jogo.score}</Text>
+          <Text>  {jogo.shortDescription} </Text>
+          <Text>{jogo.longDescription}</Text>
+
+        </ul>
+      </main>
+    ));
+    return ListaJogos;
+  }
+
   return (
 
-      
-   
-    <div className= "body">
-      <div className="head">
-        <button onClick={() => reloadPage()}>
-        Início
-        </button>
-        <button onClick={() => handleGet(1)}>
-        Aventura e RPG
-        </button>
-        <button onClick={() => handleGet(2)}>
-        Jogos de plataforma
-        </button>
-      </div>
+    <div className="body">
+      <ContainerMenu>
 
+        <ButtonMenu title="Início" onClick={() => reloadPage()} />
+        <ButtonMenu title="Aventura e RPG" onClick={() => handleGet(1)} />
+        <ButtonMenu title="Jogos de plataforma" onClick={() => handleGet(2)} />
+        <ButtonMenu title="Salvar" />
 
-    
-    <div className="container">
-      <h1 className= "title">Lista de Jogos</h1>
-      
+      </ContainerMenu>
 
-      <div className="containerInput"  >
-        <input
-        type= "text"
-        placeholder="Buscar jogo"
-        value={input}  
-        onChange={(e) => setInput(e.target.value)}
-        
-        >
-          </input>
-          <button className="buttonSearch" 
-          onClick={()=>handleSeach()} type="submit"
-         
+      <div className="container">
+        <Title>Lista de Jogos</Title>
+
+        <div className="containerInput">
+          <input
+            type="text"
+            placeholder="Buscar jogo"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
+          <button
+            className="buttonSearch"
+            onClick={() => handleSeach()}
+            type="submit"
+
           >
-            <FiSearch size={25} color= "#Black"/>
+            <FiSearch size={25} color="#Black" />
 
           </button>
 
-      </div>
-    
+        </div>
 
-      
-      
-      
-      <div className='card'    >
+        {renderCard()}
 
-      
-      {render()}
-
-      
-      
-      
-      
       </div>
 
-        
-    
-    
-    
-    
-    
-      
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </div>
-
-
-      <div className='footer'>
+      <div className="footer">
 
         <h5>
-        By: Will !! WhatsApp : 21 995915256
-          </h5>
+          By: Will !! WhatsApp : 21 995915256
+        </h5>
 
       </div>
 
-
-      
     </div>
-    
-     
-        
-      
-    
+
   );
-
-
-
-  
-
 }
 
 export default App;
